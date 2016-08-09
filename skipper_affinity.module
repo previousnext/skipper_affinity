@@ -1,0 +1,29 @@
+<?php
+
+/**
+ * @file
+ * Provides core hooks for skipper_affinity module.
+ */
+
+/**
+ * Implements hook_boot().
+ */
+function skipper_affinity_boot() {
+  if (!user_is_logged_in()) {
+	  return;
+  }
+
+  if ($_COOKIE["SKIPPER_AFFINITY"] != gethostname()) {
+	setcookie('SKIPPER_AFFINITY', $hostname, time() + (7 * 24 * 60 * 60), '/');
+  }
+}
+
+/**
+ * Implementation of hook_user().
+ */
+function skipper_affinity_user($op, &$edit, &$account, $category = NULL) {
+  // Some cleanup if the user is logging out of the site.
+  if ($op == 'logout' && isset($_COOKIE['SKIPPER_AFFINITY'])) {
+    setcookie('SKIPPER_AFFINITY', '', 0, '/');
+  }
+}
