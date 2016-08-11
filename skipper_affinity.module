@@ -9,21 +9,16 @@
  * Implements hook_init().
  */
 function skipper_affinity_init() {
-  if (!user_is_logged_in()) {
-    return;
-  }
-
-  if ($_COOKIE["SKIPPER_AFFINITY"] != gethostname()) {
+  if ((user_is_logged_in()) && ($_COOKIE["SKIPPER_AFFINITY"] != gethostname())) {
     setcookie('SKIPPER_AFFINITY', gethostname(), time() + (365 * 24 * 60 * 60), base_path());
   }
 }
 
 /**
- * Implementation of hook_user().
+ * Implementation of hook_user_logout().
  */
-function skipper_affinity_user($op, &$edit, &$account, $category = NULL) {
-  // Some cleanup if the user is logging out of the site.
-  if ($op === 'logout' && isset($_COOKIE['SKIPPER_AFFINITY'])) {
+function skipper_affinity_user_logout($account) {
+  if (isset($_COOKIE['SKIPPER_AFFINITY']) {
     setcookie('SKIPPER_AFFINITY', '', 0, base_path());
   }
 }
