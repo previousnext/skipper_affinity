@@ -1,3 +1,0 @@
-name = Skipper - Affinity
-description = Provides cookie based affinity for logged in users.
-core = 7.x

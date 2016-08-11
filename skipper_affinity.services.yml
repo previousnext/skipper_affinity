@@ -1,0 +1,6 @@
+services:
+  skipper_affinity.event_subscriber:
+    class: Drupal\skipper_affinity\SkipperAffinityEventSubscriber
+    arguments: ['@current_user']
+    tags:
+      - { name: event_subscriber}
