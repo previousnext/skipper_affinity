@@ -15,7 +15,7 @@ function skipper_affinity_init() {
 }
 
 /**
- * Implementation of hook_user_logout().
+ * Implements hook_user_logout().
  */
 function skipper_affinity_user_logout($account) {
   if (isset($_COOKIE['SKIPPER_AFFINITY'])) {
