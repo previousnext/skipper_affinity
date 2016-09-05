@@ -9,7 +9,7 @@
  * Implements hook_init().
  */
 function skipper_affinity_init() {
-  if ((user_is_logged_in()) && ($_COOKIE["SKIPPER_AFFINITY"] != gethostname())) {
+  if ((user_is_logged_in()) && isset($_COOKIE["SKIPPER_AFFINITY"]) && ($_COOKIE["SKIPPER_AFFINITY"] != gethostname())) {
     setcookie('SKIPPER_AFFINITY', gethostname(), time() + (365 * 24 * 60 * 60), base_path());
   }
 }
