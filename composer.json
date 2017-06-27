@@ -1,0 +1,8 @@
+{
+  "name": "drupal/skipper_affinity",
+  "type": "drupal-module",
+  "description": "Drupal module for setting affinity on Skipper.",
+  "license": "proprietary",
+  "require": {
+  }
+}
