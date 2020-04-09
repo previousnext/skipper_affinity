@@ -2,3 +2,4 @@ name: Skipper - Affinity
 description: Provides cookie based affinity for logged in users.
 type: module
 core: 8.x
+core_version_requirement: ^8 || ^9

@@ -2,9 +2,9 @@
 
 namespace Drupal\Tests\skipper_affinity\Functional;
 
-use Drupal\simpletest\UserCreationTrait;
 use Drupal\skipper_affinity\SkipperAffinityEventSubscriber;
 use Drupal\Tests\BrowserTestBase;
+use Drupal\Tests\user\Traits\UserCreationTrait;
 
 /**
  * Tests skipper affinity.
